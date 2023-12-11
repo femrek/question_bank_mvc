@@ -19,7 +19,11 @@ public class QuestionController : Controller
         return View();
     }
 
-    public IActionResult Privacy()
+    public IActionResult Editor()
+    {
+        return View();
+    }
+    public IActionResult Viewer()
     {
         return View();
     }
