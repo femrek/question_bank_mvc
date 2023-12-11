@@ -1,7 +1,17 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using Microsoft.EntityFrameworkCore;
+using web_assignment.Data;
+
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<DataContext>(
+    Options => {
+        var config = builder.Configuration;
+        var conString = config.GetConnectionString("database");
+        Options.UseSqlite(conString);
+    }); 
 
 var app = builder.Build();
 
