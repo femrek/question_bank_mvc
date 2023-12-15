@@ -1,7 +1,23 @@
-﻿@{
-}
+﻿@model IEnumerable<web_assignment.Data.QuestionModel>
 
-<div class="text-center">
-    <h1>question page</h1>
+<div class="container text-center">
+    <h1 class="my-5">All Questions</h1>
+    @foreach (var question in Model)
+    {
+        <div class="card mb-4 p-3 bg-light">
+            <div class="row mt-2 mx-4">
+                <div class="col-md-6 text-start">
+                    <h3>@question.title</h3>
+                </div>
+                <div class="col-md-6 text-end">
+                    <button type="button" class="btn btn-primary">Go to question</button>
+                </div>
+            </div>
+            <div class="row mt-3 px-1">
+                <div class="col-md-12 text-start">
+                    <p>@question.content</p>
+                </div>
+            </div>
+        </div>
+    }
 </div>
-

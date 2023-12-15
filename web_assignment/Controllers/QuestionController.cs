@@ -1,8 +1,8 @@
-﻿using System;
-using Microsoft.AspNetCore.Mvc;
-using web_assignment.Models; 
 using System;
+using System.Diagnostics;
+using Microsoft.AspNetCore.Mvc;
 using web_assignment.Data;
+using web_assignment.Models;
 
 namespace web_assignment.Controllers;
 
@@ -19,7 +19,20 @@ public class QuestionController : Controller
 
     public IActionResult Index()
     {
-        return View();
+        QuestionModel sampleData = new QuestionModel();
+        sampleData.QuestionModelId = 1;
+        sampleData.title = "Question Title";
+        sampleData.content = "Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content ";
+        sampleData.correctOption = "the correct option";
+        sampleData.optionOne = "wrong option One";
+        sampleData.optionTwo = "wrong option Two";
+        sampleData.optionThree = "wrong option Three";
+        List<QuestionModel> data = new List<QuestionModel>();
+        data.Add(sampleData);
+        data.Add(sampleData);
+        data.Add(sampleData);
+        data.Add(sampleData);
+        return View(data);
     }
     [HttpGet]
     public IActionResult Editor()
