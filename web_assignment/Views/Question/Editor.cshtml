@@ -6,6 +6,11 @@
   <div class="col-md-6 col-10">
     <form asp-controller="Question" method="post">
       <div class="form-group  mb-3">
+        <label asp-for="title" class="mb-2">Title</label>
+        <input asp-for="title" class="form-control" />
+      </div>
+
+      <div class="form-group  mb-3">
         <label asp-for="content" class="mb-2">Question</label>
         <textarea asp-for="content" placeholder="write your question here" class="form-control"></textarea>
       </div>
