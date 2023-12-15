@@ -62,9 +62,17 @@ public class QuestionController : Controller
         }
         return View(model);
     }
-    public IActionResult Viewer()
+    public IActionResult Viewer(int id)
     {
-
-        return View();
+        //var question = _context.QuestionModels.FirstOrDefault(q => q.QuestionModelId == id);
+        QuestionModel sampleData = new QuestionModel();
+        sampleData.QuestionModelId = 1;
+        sampleData.title = "Question Title";
+        sampleData.content = "Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content ";
+        sampleData.correctOption = "the correct option";
+        sampleData.optionOne = "wrong option One";
+        sampleData.optionTwo = "wrong option Two";
+        sampleData.optionThree = "wrong option Three";
+        return View(sampleData);
     }
 }
