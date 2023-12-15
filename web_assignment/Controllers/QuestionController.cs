@@ -1,8 +1,9 @@
 using System;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using web_assignment.Data;
 using web_assignment.Models;
+using System;
+using web_assignment.Data;
 
 namespace web_assignment.Controllers;
 
@@ -11,11 +12,12 @@ public class QuestionController : Controller
     private readonly ILogger<QuestionController> _logger;
     private readonly DataContext _context;
 
-	public QuestionController(ILogger<QuestionController> logger, DataContext context)
-    { 
+
+    public QuestionController(ILogger<QuestionController> logger, DataContext context)
+    {
         _context = context;
         _logger = logger;
-	}
+    }
 
     public IActionResult Index()
     {
@@ -43,7 +45,7 @@ public class QuestionController : Controller
     [HttpPost]
     public IActionResult Editor(QuestionModel model)
     {
-        if(ModelState.IsValid)
+        if (ModelState.IsValid)
         {
             var question = new QuestionModel
             {
@@ -62,6 +64,7 @@ public class QuestionController : Controller
         }
         return View(model);
     }
+
     public IActionResult Viewer(int id)
     {
         //var question = _context.QuestionModels.FirstOrDefault(q => q.QuestionModelId == id);

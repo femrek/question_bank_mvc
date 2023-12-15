@@ -1,6 +1,39 @@
-﻿@{
-}
+﻿@model web_assignment.Data.QuestionModel
 
-<div class="text-center">
-  <h1>question editor</h1>
+<h1 class="text-center my-5">ADD YOUR QUESTİON </h1>
+
+<div class="row justify-content-center">
+  <div class="col-md-6 col-10">
+    <form asp-controller="Question" method="post">
+      <div class="form-group  mb-3">
+        <label asp-for="content" class="mb-2">Question</label>
+        <textarea asp-for="content" placeholder="write your question here" class="form-control"></textarea>
+      </div>
+
+      <div class="form-group  mb-3">
+        <label asp-for="correctOption" class="mb-2">Correct Option</label>
+        <input asp-for="correctOption" class="form-control" />
+      </div>
+
+      <div class="form-group mb-3">
+        <label asp-for="optionOne" class="mb-2"> Option One</label>
+        <input asp-for="optionOne" class="form-control" />
+      </div>
+
+      <div class="form-group  mb-3">
+        <label asp-for="optionTwo" class="mb-2"> Option Two</label>
+        <input asp-for="optionTwo" class="form-control" />
+      </div>
+
+      <div class="form-group  mb-3">
+        <label asp-for="optionThree" class="mb-2">Option Three</label>
+        <input asp-for="optionThree" class="form-control" />
+
+      </div>
+
+      <button style="float: right;" asp-controller="Question" asp-action="Editor" type="submit"
+        class="btn btn-primary mt-2">Create</button>
+    </form>
+  </div>
+
 </div>
