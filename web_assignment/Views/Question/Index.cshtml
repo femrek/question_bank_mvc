@@ -1,7 +1,10 @@
-﻿@{
-}
+﻿@model IEnumerable<web_assignment.Data.QuestionModel>
 
 <div class="text-center">
     <h1>question page</h1>
+    @foreach(var question in Model) { 
+            <div>@question.title</div>
+            <br />
+        }
 </div>
 
