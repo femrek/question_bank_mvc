@@ -1,8 +1,4 @@
-using System;
-using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
-using web_assignment.Models;
-using System;
+﻿using Microsoft.AspNetCore.Mvc;
 using web_assignment.Data;
 
 namespace web_assignment.Controllers;
@@ -12,7 +8,6 @@ public class QuestionController : Controller
     private readonly ILogger<QuestionController> _logger;
     private readonly DataContext _context;
 
-
     public QuestionController(ILogger<QuestionController> logger, DataContext context)
     {
         _context = context;
@@ -21,21 +16,10 @@ public class QuestionController : Controller
 
     public IActionResult Index()
     {
-        QuestionModel sampleData = new QuestionModel();
-        sampleData.QuestionModelId = 1;
-        sampleData.title = "Question Title";
-        sampleData.content = "Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content ";
-        sampleData.correctOption = "the correct option";
-        sampleData.optionOne = "wrong option One";
-        sampleData.optionTwo = "wrong option Two";
-        sampleData.optionThree = "wrong option Three";
-        List<QuestionModel> data = new List<QuestionModel>();
-        data.Add(sampleData);
-        data.Add(sampleData);
-        data.Add(sampleData);
-        data.Add(sampleData);
-        return View(data);
+        var questions = _context.QuestionModels.ToList();
+        return View(questions);
     }
+
     [HttpGet]
     public IActionResult Editor()
     {
@@ -56,26 +40,23 @@ public class QuestionController : Controller
                 optionTwo = model.optionTwo,
                 optionThree = model.optionThree
             };
-
             _context.QuestionModels.Add(question);
             _context.SaveChanges();
-
             return RedirectToAction("Index", "Home");
         }
         return View(model);
     }
 
-    public IActionResult Viewer(int id)
+    public IActionResult Viewer(int? id)
     {
-        //var question = _context.QuestionModels.FirstOrDefault(q => q.QuestionModelId == id);
-        QuestionModel sampleData = new QuestionModel();
-        sampleData.QuestionModelId = 1;
-        sampleData.title = "Question Title";
-        sampleData.content = "Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content Question Content ";
-        sampleData.correctOption = "the correct option";
-        sampleData.optionOne = "wrong option One";
-        sampleData.optionTwo = "wrong option Two";
-        sampleData.optionThree = "wrong option Three";
-        return View(sampleData);
+        if(id == null)
+        {
+            Random random = new Random();
+            int questionCount = _context.QuestionModels.Count();
+            int randomNum = random.Next(1, questionCount);
+            id = _context.QuestionModels.Skip(randomNum - 1).Select(e => e.QuestionModelId).FirstOrDefault();
+        }
+        var question = _context.QuestionModels.FirstOrDefault(q => q.QuestionModelId == id);
+        return View(question);
     }
 }
