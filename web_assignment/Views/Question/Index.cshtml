@@ -4,9 +4,7 @@
     <h1 class="my-5">All Questions</h1>
     @foreach (var question in Model)
     {
-        
         ViewBag.question = question;
-
-        <partial name="_questionEntry"></partial>
+        <partial name="_questionEntry" />
     }
 </div>
