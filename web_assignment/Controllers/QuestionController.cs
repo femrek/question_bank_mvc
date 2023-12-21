@@ -53,6 +53,9 @@ public class QuestionController : Controller
         {
             Random random = new Random();
             int questionCount = _context.QuestionModels.Count();
+            if (questionCount <= 0) {
+                return NotFound();
+            }
             int randomNum = random.Next(1, questionCount);
             id = _context.QuestionModels.Skip(randomNum - 1).Select(e => e.QuestionModelId).FirstOrDefault();
         }
