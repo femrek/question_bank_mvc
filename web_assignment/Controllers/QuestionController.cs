@@ -49,6 +49,8 @@ public class QuestionController : Controller
 
     public IActionResult Viewer(int? id)
     {
+        // Find a random id from db table if the id parameter is not given.
+        // Then redirect back with id parameter.
         if(id == null)
         {
             Random random = new Random();
@@ -58,6 +60,9 @@ public class QuestionController : Controller
             }
             int randomNum = random.Next(1, questionCount);
             id = _context.QuestionModels.Skip(randomNum - 1).Select(e => e.QuestionModelId).FirstOrDefault();
+
+            // redirect to viewer page but with definite id.
+            return RedirectToAction("Viewer", new { id = id});
         }
         var question = _context.QuestionModels.FirstOrDefault(q => q.QuestionModelId == id);
         return View(question);
