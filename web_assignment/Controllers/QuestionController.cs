@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using web_assignment.Data;
+using web_assignment.Models;
 
 namespace web_assignment.Controllers;
 
@@ -44,6 +45,7 @@ public class QuestionController : Controller
             _context.SaveChanges();
             return RedirectToAction("Index", "Home");
         }
+        ViewBag.editorValidationMessages = ModelState;
         return View(model);
     }
 
