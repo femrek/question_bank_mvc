@@ -58,7 +58,7 @@ public class QuestionController : Controller
             if (questionCount <= 0) {
                 return NotFound();
             }
-            int randomNum = random.Next(1, questionCount);
+            int randomNum = random.Next(1, questionCount + 1);
             id = _context.QuestionModels.Skip(randomNum - 1).Select(e => e.QuestionModelId).FirstOrDefault();
 
             // redirect to viewer page but with definite id.
