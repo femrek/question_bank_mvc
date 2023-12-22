@@ -31,8 +31,20 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapControllerRoute(
+    name: "QuestionIndex",
+    pattern: "AllQuestions",
+    defaults: new {controller = "Question", action = "Index" }
+    );
+
+app.MapControllerRoute(
+    name: "question_viewer_with_id",
+    pattern: "Question/{id?}",
+    defaults: new { controller = "Question", action = "Viewer"});
+
+app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}"
+    );
 
 app.Run();
 
