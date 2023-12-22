@@ -3,13 +3,12 @@
 - Controller
   - Home
     - GET Index -> returns home index view
-    - // get random question -> finds a random question and routes the question viewer view
   - Question
     - GET Index -> returns question index view
-    - GET Editor -> returns question editor view
     - GET Viewer -> returns question viewer view
-    - // post submit editor form -> validates and saves the data recived from the request
-    
+    - GET Editor -> returns question editor view
+    - POST Editor -> validates and saves the data recived from the request
+
 
 - View
   - Home
