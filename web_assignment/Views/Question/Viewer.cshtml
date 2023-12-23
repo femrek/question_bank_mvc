@@ -17,15 +17,25 @@
   <div class="row">
     <div class="col-md-6">
       @{
+        // THIS PART PROVIDES US RANDOMIZE THE OPTIONS
+
         Random random = new Random();
-        List<int> numbers = new List<int> { 1, 2, 3, 4 };
+        // Created a list for 4 option
+        List<int> options = new List<int> { 1, 2, 3, 4 };
+
+        // The randomized string array that hold the options
         string[] s = new string[4];
+
+        // we will assign the correct answer index
         int correct = 0;
+
         for (int i = 0; i < 4; i++)
         {
-          int number = random.Next(0, numbers.Count);
+          // Choose a random index in a Range that from 0 to list count.
+          int number = random.Next(0, options.Count);
 
-          switch (numbers[number])
+          // Control options in switch case
+          switch (options[number])
           {
             case 1:
               s[i] = Model.optionOne;
@@ -40,7 +50,8 @@
               s[i] = Model.correctOption; correct = i;
               break;
           }
-          numbers.RemoveAt(number);
+          // After all iteration, remove the value at the index from options list
+          options.RemoveAt(number);
         }
       }
 
