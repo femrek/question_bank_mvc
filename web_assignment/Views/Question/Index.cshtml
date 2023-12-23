@@ -1,5 +1,7 @@
 ﻿@model IEnumerable<web_assignment.Data.QuestionModel>
-
+@{
+  ViewData["Title"] = "Question";
+}
 <div class="container text-center">
     <h1 class="my-5">All Questions</h1>
     @foreach (var question in Model)
