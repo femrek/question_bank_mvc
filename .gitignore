@@ -405,4 +405,5 @@ ASALocalRun/
 .localhistory/
 
 #db
+**/MyDb.db
 **/MyDb.db*
