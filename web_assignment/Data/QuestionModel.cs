@@ -2,6 +2,7 @@
 
 namespace web_assignment.Data;
 
+// Entity model to store questions.
 public class QuestionModel
 {
 	public int QuestionModelId { get; set; }
