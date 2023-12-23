@@ -8,15 +8,14 @@ public class QuestionController : Controller
     private readonly DataContext _context;
 
     // Constructor for the QuestionController class
-    // Parameters:
-    //   logger: ILogger instance for logging purposes
+    // Parameter:
     //   context: DataContext instance for database interaction
     public QuestionController(DataContext context)
     {
         _context = context;
     }
 
-    // Fetch all question and send it to view as list.
+    // Fetch all questions and send it to view as list.
     public IActionResult Index()
     {
         var questions = _context.QuestionModels.ToList();
@@ -33,7 +32,7 @@ public class QuestionController : Controller
     [HttpPost]
     public IActionResult Editor(QuestionModel model)
     {
-        // Saves the given model into db and redirect to home page
+        // Saves the given model into db and redirect to home page.
         if (ModelState.IsValid)
         {
             _context.QuestionModels.Add(model);
@@ -41,7 +40,7 @@ public class QuestionController : Controller
             return RedirectToAction("Index", "Home"); 
         }
 
-        // If form is not valid add error messages into viewbag, then shows with error message
+        // If form is not valid add error messages into viewbag, then shows with error message.
         ViewBag.editorValidationMessages = ModelState;
         return View(model);
     }
