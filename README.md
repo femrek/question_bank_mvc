@@ -8,8 +8,10 @@ Question Bank is a .Net MVC applicaiton that allows users to create and solve mu
 
 ## Project Architecture
 - Endpoints
-  - / 
-    - Home Page.
+  - /
+    - Home Page. Allows to route /About, /AddNewQuestion, /Question, /AllQuestions pages.
+  - /About
+    - Page for giving information about the project.
   - /AllQuestions
     - Page for listing all questions added so far.
   - /Question/{id?}
@@ -21,13 +23,20 @@ Question Bank is a .Net MVC applicaiton that allows users to create and solve mu
   - Home
     - GET Index
       - Returns home index view
+      - /
+    - GET About
+      - Returns home about view
+      - /About
   - Question
     - GET Index
       - Returns question index view
+      - /AllQuestions
     - GET Viewer
       - Returns question viewer view
+      - /Question/{id?}
     - GET Editor
       - Returns question editor view
+      - /AddNewQuestion
     - POST Editor
       - Validates and saves the data recived from the request
 
@@ -35,6 +44,8 @@ Question Bank is a .Net MVC applicaiton that allows users to create and solve mu
   - Home
     - Index
       - Shows three buttons (1. add question, 2. show random question, 3. list all questions).
+    - About
+      - Present the porpose of the project
   - Question
     - Index
       - List all questions.
