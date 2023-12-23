@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using web_assignment.Data;
 using web_assignment.Models;
 
@@ -32,18 +32,9 @@ public class QuestionController : Controller
     {
         if (ModelState.IsValid)
         {
-            var question = new QuestionModel
-            {
-                title = model.title,
-                content = model.content,
-                correctOption = model.correctOption,
-                optionOne = model.optionOne,
-                optionTwo = model.optionTwo,
-                optionThree = model.optionThree
-            };
-            _context.QuestionModels.Add(question);
+            _context.QuestionModels.Add(model);
             _context.SaveChanges();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Home"); 
         }
         ViewBag.editorValidationMessages = ModelState;
         return View(model);
