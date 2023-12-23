@@ -42,6 +42,11 @@ app.MapControllerRoute(
     defaults: new { controller = "Question", action = "Viewer"});
 
 app.MapControllerRoute(
+    name: "QuestionEditor",
+    pattern: "Editor",
+    defaults: new { controller = "Question", action = "Editor"});
+
+app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}"
     );
