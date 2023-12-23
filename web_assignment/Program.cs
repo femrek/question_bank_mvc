@@ -43,7 +43,7 @@ app.MapControllerRoute(
 
 app.MapControllerRoute(
     name: "QuestionEditor",
-    pattern: "Editor",
+    pattern: "AddNewQuestion",
     defaults: new { controller = "Question", action = "Editor"});
 
 app.MapControllerRoute(
