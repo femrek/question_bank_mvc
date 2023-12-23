@@ -5,17 +5,15 @@ namespace web_assignment.Controllers;
 
 public class QuestionController : Controller
 {
-    private readonly ILogger<QuestionController> _logger;
     private readonly DataContext _context;
 
     // Constructor for the QuestionController class
     // Parameters:
     //   logger: ILogger instance for logging purposes
     //   context: DataContext instance for database interaction
-    public QuestionController(ILogger<QuestionController> logger, DataContext context)
+    public QuestionController(DataContext context)
     {
         _context = context;
-        _logger = logger;
     }
 
     // Fetch all question and send it to view as list.
