@@ -3,10 +3,13 @@
   ViewData["Title"] = "Add Question";
 }
 
+@* The user will be able to enter a test question and its options using the form below *@
 <h1 class="text-center my-5">ADD YOUR QUESTION </h1>
 
 <div class="row justify-content-center">
   <div class="col-md-6 col-10">
+
+    @* Thanks to TagHelpers, the relevant action is triggered, directing the user to the corresponding view page. *@
     <form asp-controller="Question" method="post">
       <div class="form-group mb-3">
         <label asp-for="title" class="mb-2">Title</label>
@@ -44,6 +47,7 @@
         <span style="color:#f00; font-size:12px" asp-validation-for="optionThree"></span>
       </div>
 
+      @* Users submit their written questions to the database using the buttons below. *@
       <button style="float: right;" asp-controller="Question" asp-action="Editor" type="submit"
         class="btn btn-primary mt-2">Create</button>
     </form>
