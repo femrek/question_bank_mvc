@@ -45,14 +45,14 @@ Question Bank is a .Net MVC applicaiton that allows users to create and solve mu
     - Index
       - Shows three buttons (1. add question, 2. show random question, 3. list all questions).
     - About
-      - Present the porpose of the project
+      - Presents the porpose of the project
   - Question
     - Index
-      - List all questions.
+      - Lists all questions.
     - Editor
-      - Create new question.
+      - Creates new question.
     - Viewer
-      - Show single question.
+      - Shows single question.
 
 - Models
   - QuestionModel
