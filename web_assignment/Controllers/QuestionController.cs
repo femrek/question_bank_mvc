@@ -22,7 +22,6 @@ public class QuestionController : Controller
         return View(questions);
     }
 
-    [HttpGet]
     public IActionResult Editor()
     {
         return View();
