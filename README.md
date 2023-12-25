@@ -1,5 +1,5 @@
 # Question Bank
-Question Bank is a .Net MVC applicaiton that allows users to create and solve multiple choice questions with four options. Morever, the user can see the list of added questions. Also, user can view a random question as well as picking a question by selecting from the questions list.
+Question Bank is a .Net MVC applicaiton that allows users to create and solve multiple choice questions with four options. The user can see the list of added questions. Also, user can view a random question as well as picking a question by selecting from the questions list.
 
 ## Project Terminology
 - **Question:** refers to question that includes title, content and options.
